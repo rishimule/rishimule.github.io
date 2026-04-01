@@ -218,7 +218,7 @@ window.addEventListener('touchend', onDragEnd);
 const resumeModal = document.getElementById('resumeModal');
 const resumeIframe = document.getElementById('resumeIframe');
 const resumeLoading = document.getElementById('resumeLoading');
-const RESUME_URL = './Rishi_Mule_Resume.pdf';
+const RESUME_URL = './assets/Rishi_Mule_Resume.pdf';
 
 function openResume() {
   resumeModal.classList.add('open');
