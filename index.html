@@ -1,490 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rishi Mule — Software Developer & ML Engineer</title>
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-<meta name="description" content="Portfolio of Rishi Mule — Software Developer specializing in AI/ML, Full-Stack Development, and Cloud Computing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<script>
-  // Apply theme before first paint to prevent flash
-  (function(){
-    var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', t);
-  })();
-</script>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi Mule — Software Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Portfolio of Rishi Mule — Software Engineer specializing in machine learning, full-stack development, and cloud computing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader"><div class="loader-ring"></div></div>
-
-<!-- PARTICLE BACKGROUND -->
-<canvas id="particles-canvas"></canvas>
-
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">RM</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#" onclick="event.preventDefault(); openResume();" class="nav-resume">Resume <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-    </button>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<!-- Navigation -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-monogram">RM</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="nav-resume" id="resumeOpen">Resume</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#experience" onclick="closeMobile()">Experience</a>
-  <a href="#education" onclick="closeMobile()">Education</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#skills" onclick="closeMobile()">Skills</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#" onclick="event.preventDefault(); closeMobile(); openResume();">Resume</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#work">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+  <a href="#" id="resumeOpenMobile">Resume</a>
 </div>
 
-<!-- RESUME MODAL -->
-<div class="resume-modal" id="resumeModal">
-  <div class="resume-modal-backdrop" id="resumeBackdrop"></div>
-  <div class="resume-modal-frame">
-    <div class="resume-modal-header">
-      <div class="resume-modal-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        Rishi_Mule_Resume.pdf
-      </div>
-      <div class="resume-modal-actions">
-        <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="resume-btn resume-btn-newtab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          New Tab
-        </a>
-        <a href="./assets/Rishi_Mule_Resume.pdf" download class="resume-btn resume-btn-download">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download
-        </a>
-        <button class="resume-modal-close" id="resumeClose" aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
+<!-- Resume Modal -->
+<div class="modal-backdrop" id="resumeModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Resume</span>
+      <button class="modal-close" id="resumeClose" aria-label="Close">&times;</button>
     </div>
-    <div class="resume-modal-body">
-      <div class="resume-modal-loading" id="resumeLoading">
-        <div class="resume-spinner"></div>
-        Loading resume...
-      </div>
+    <div class="modal-body">
       <iframe id="resumeIframe" title="Resume"></iframe>
-      <div class="resume-mobile-fallback">
-        <svg class="fallback-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        <p>PDF preview isn't available on small screens. Use the buttons above to open or download the resume.</p>
-      </div>
+    </div>
+    <div class="modal-fallback">
+      <p>Resume preview is not available on this device.</p>
+      <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="btn-modal btn-modal-primary">Open Resume</a>
+    </div>
+    <div class="modal-footer">
+      <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="btn-modal btn-modal-primary">Open in New Tab</a>
+      <a href="./assets/Rishi_Mule_Resume.pdf" download class="btn-modal">Download</a>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
+<main>
 
-  <div class="hero-3d-container">
-    <div class="hero-3d-object">
-      <div class="hero-3d-face face-front">&lt;code /&gt;</div>
-      <div class="hero-3d-face face-back">AI/ML</div>
-      <div class="hero-3d-face face-right">cloud</div>
-      <div class="hero-3d-face face-left">data</div>
-      <div class="hero-3d-face face-top">build</div>
-      <div class="hero-3d-face face-bottom">ship</div>
-    </div>
-  </div>
-
-  <div class="hero-eyebrow">Software Developer &bull; ML Engineer</div>
-  <h1>
-    <span class="line">Rishi</span>
-    <span class="line gradient-text">Mule.</span>
-  </h1>
-  <p class="hero-desc">Building scalable, intelligent systems at the intersection of software engineering and machine learning.</p>
-  <div class="hero-ctas">
-    <a href="#projects" class="btn-primary">
-      View Work
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-    </a>
-    <a href="#contact" class="btn-secondary">Get in Touch</a>
-    <button onclick="openResume()" class="btn-ghost">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Resume
-    </button>
-  </div>
-
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- TECH MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track" id="marquee">
-    <span class="marquee-item"><span class="dot"></span>Python</span>
-    <span class="marquee-item"><span class="dot"></span>Java</span>
-    <span class="marquee-item"><span class="dot"></span>JavaScript</span>
-    <span class="marquee-item"><span class="dot"></span>PyTorch</span>
-    <span class="marquee-item"><span class="dot"></span>TensorFlow</span>
-    <span class="marquee-item"><span class="dot"></span>AWS</span>
-    <span class="marquee-item"><span class="dot"></span>Azure</span>
-    <span class="marquee-item"><span class="dot"></span>Django</span>
-    <span class="marquee-item"><span class="dot"></span>Node.js</span>
-    <span class="marquee-item"><span class="dot"></span>React</span>
-    <span class="marquee-item"><span class="dot"></span>Docker</span>
-    <span class="marquee-item"><span class="dot"></span>MLOps</span>
-    <span class="marquee-item"><span class="dot"></span>Deep Learning</span>
-    <span class="marquee-item"><span class="dot"></span>CUDA</span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item"><span class="dot"></span>Python</span>
-    <span class="marquee-item"><span class="dot"></span>Java</span>
-    <span class="marquee-item"><span class="dot"></span>JavaScript</span>
-    <span class="marquee-item"><span class="dot"></span>PyTorch</span>
-    <span class="marquee-item"><span class="dot"></span>TensorFlow</span>
-    <span class="marquee-item"><span class="dot"></span>AWS</span>
-    <span class="marquee-item"><span class="dot"></span>Azure</span>
-    <span class="marquee-item"><span class="dot"></span>Django</span>
-    <span class="marquee-item"><span class="dot"></span>Node.js</span>
-    <span class="marquee-item"><span class="dot"></span>React</span>
-    <span class="marquee-item"><span class="dot"></span>Docker</span>
-    <span class="marquee-item"><span class="dot"></span>MLOps</span>
-    <span class="marquee-item"><span class="dot"></span>Deep Learning</span>
-    <span class="marquee-item"><span class="dot"></span>CUDA</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="reveal">
-    <span class="section-label">01 — About</span>
-    <h2 class="section-title">Crafting <span class="gradient">intelligent</span> software.</h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-image-wrap reveal reveal-delay-1">
-      <div class="about-image-card">
-        <img src="assets/images/profile.png" alt="Rishi Mule" loading="lazy">
-        <div class="overlay"></div>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-text reveal">
+      <h1>Rishi<br>Mule</h1>
+      <p class="hero-subtitle">Software Engineer &amp; Machine Learning Practitioner</p>
+      <div class="hero-links">
+        <a href="#work" class="link-gold">View Selected Work &darr;</a>
+        <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="link-gold">Download Resume &rarr;</a>
       </div>
     </div>
-    <div class="reveal reveal-delay-2">
-      <p class="section-subtitle" style="margin-bottom:24px;">
-        Software Developer with 5+ years of experience building scalable solutions with Java, Python, and JavaScript. My focus has shifted toward AI and machine learning — from sentiment analysis with LSTM/Conv1D to a mini-implementation of OpenFold for protein structure prediction.
-      </p>
-      <p class="section-subtitle">
-        Currently completing my Master's in Computer Science at Northeastern University (4.0 GPA), with deep coursework in deep learning, unsupervised ML, and MLOps.
-      </p>
-      <div class="about-stats">
-        <div class="stat-card">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Years Experience</div>
+    <div class="hero-portrait reveal">
+      <div class="portrait-frame">
+        <img src="assets/images/profile.png" alt="Rishi Mule" width="356" height="475">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>About</h2>
+      </div>
+      <div class="section-content about-content reveal">
+        <p>I'm a software engineer with a focus on building systems that sit at the intersection of applied machine learning and production software. Over the past five years, I've worked across the stack&mdash;from writing serial communication tools for embedded hardware to training deep learning models for protein structure prediction.</p>
+        <p>Right now I'm completing my Master's in Computer Science at Northeastern University, where I hold a 4.0 GPA, with deep coursework in deep learning, unsupervised ML, and MLOps. Before that, I earned my Bachelor's in Computer Engineering from the University of Mumbai with a 9.7/10.0 GPA. I've published one research paper and I'm always looking for problems where careful engineering and good data can make a real difference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Experience</h2>
+      </div>
+      <div class="section-content reveal">
+
+        <div class="entry-row">
+          <div class="entry-meta">
+            <span class="meta">Sept &ndash; Dec 2024</span>
+            <h3>Thermobionics</h3>
+          </div>
+          <div class="entry-detail">
+            <h3>Software Developer Intern</h3>
+            <span class="meta">Boston, MA</span>
+            <p>Designed and built a desktop application for wireless PIC microcontroller communication, improving data transmission efficiency by 30%. Developed serial communication tools for device initialization and data parsing, reducing manual configuration time by 40%. Performed high-volume sensor data analysis to identify patterns and optimize system performance.</p>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">4.0</div>
-          <div class="stat-label">GPA at NEU</div>
+
+        <div class="entry-row">
+          <div class="entry-meta">
+            <span class="meta">June &ndash; Sept 2022</span>
+            <h3>InfoInnotronics</h3>
+          </div>
+          <div class="entry-detail">
+            <h3>Software Engineer Intern</h3>
+            <span class="meta">Pune, India</span>
+            <p>Developed a real-time energy monitoring system using Python's serial library, achieving 99% data accuracy. Streamlined hardware-software integration across cross-functional teams, resulting in a 20% improvement in energy system efficiency.</p>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Publication</div>
+
+        <div class="entry-row">
+          <div class="entry-meta">
+            <span class="meta">Jan &ndash; Apr 2022</span>
+            <h3>TCR Innovations</h3>
+          </div>
+          <div class="entry-detail">
+            <h3>Data Science Intern</h3>
+            <span class="meta">Mumbai, India</span>
+            <p>Built predictive models using machine learning algorithms on large datasets for HR retention analysis. Conducted exploratory data analysis to surface actionable insights. Optimized a Random Forest classifier to 94% accuracy through systematic hyperparameter tuning.</p>
+          </div>
         </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="reveal">
-    <span class="section-label">02 — Experience</span>
-    <h2 class="section-title">Where I've <span class="gradient">worked.</span></h2>
-  </div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">Sept 2024 — Dec 2024</div>
-      <div class="timeline-company">Thermobionics</div>
-      <div class="timeline-role">Software Developer Intern</div>
-      <div class="timeline-loc">Boston, MA</div>
-      <div class="timeline-desc">Designed and implemented a desktop application for wireless PIC microcontroller communication, improving data transmission by 30%. Built serial communication tools for device initialization and data parsing, cutting manual configuration time by 40%. Performed high-volume sensor data analysis to optimize system performance.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">June 2022 — Sept 2022</div>
-      <div class="timeline-company">InfoInnotronics Eng. & Tech</div>
-      <div class="timeline-role">Software Engineer Intern</div>
-      <div class="timeline-loc">Pune, India</div>
-      <div class="timeline-desc">Developed a real-time energy monitoring system using Python's serial library with 99% data accuracy. Streamlined hardware-software integration with cross-functional teams, achieving a 20% improvement in energy system efficiency.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-date">Jan 2022 — Apr 2022</div>
-      <div class="timeline-company">TCR Innovations</div>
-      <div class="timeline-role">Data Science Intern</div>
-      <div class="timeline-loc">Mumbai, India</div>
-      <div class="timeline-desc">Built predictive models using ML algorithms on large datasets. Conducted exploratory data analysis for HR retention insights. Optimized Random Forest classifier accuracy to 94% through hyperparameter tuning.</div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="reveal">
-    <span class="section-label">03 — Education</span>
-    <h2 class="section-title">Academic <span class="gradient">foundation.</span></h2>
-  </div>
-  <div class="edu-cards">
-    <div class="edu-card reveal reveal-delay-1">
-      <div class="edu-degree">M.S. Computer Science</div>
-      <div class="edu-school">Northeastern University</div>
-      <div class="edu-date">Sept 2023 — Dec 2025 &bull; Boston, MA</div>
-      <div class="edu-gpa">GPA: 4.0 / 4.0</div>
-      <div class="edu-courses">Deep Learning &bull; MLOps &bull; Unsupervised ML &bull; Algorithms &bull; Database Systems &bull; Cloud Computing (AWS) &bull; Program Design Paradigm</div>
-    </div>
-    <div class="edu-card reveal reveal-delay-2">
-      <div class="edu-degree">B.E. Computer Engineering</div>
-      <div class="edu-school">University of Mumbai</div>
-      <div class="edu-date">Aug 2019 — May 2023 &bull; Mumbai, India</div>
-      <div class="edu-gpa">GPA: 9.7 / 10.0</div>
-      <div class="edu-courses">Built a strong foundation in programming, algorithms, and system design. Key project: personalized tourism recommender system with chatbot, published in an international journal.</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="reveal">
-    <span class="section-label">04 — Projects</span>
-    <h2 class="section-title">Things I've <span class="gradient">built.</span></h2>
-  </div>
-  <div class="projects-grid">
-
-    <a href="https://expo.baulab.info/public/2025-Spring/rishimule/" target="_blank" class="project-card reveal">
-      <div class="project-card-visual">
-        <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2997ff;stop-opacity:0.15"/><stop offset="100%" style="stop-color:#bf5af2;stop-opacity:0.15"/></linearGradient></defs><rect fill="url(#g1)" width="400" height="200"/><g stroke="rgba(41,151,255,0.08)" stroke-width="0.5" fill="none"><path d="M0 50 Q100 30 200 60 T400 40"/><path d="M0 100 Q100 80 200 110 T400 90"/><path d="M0 150 Q100 130 200 160 T400 140"/></g></svg>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="position:relative;z-index:1"><path d="M32 8L56 24v16L32 56 8 40V24L32 8z" stroke="rgba(41,151,255,0.5)" stroke-width="1" fill="rgba(41,151,255,0.05)"/><circle cx="32" cy="32" r="12" stroke="rgba(191,90,242,0.4)" stroke-width="1" fill="none"/></svg>
+  <!-- Education -->
+  <section class="section" id="education">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Education</h2>
       </div>
-      <div class="project-card-body">
-        <div class="project-card-title">OpenFold Protein Structure Prediction</div>
-        <div class="project-card-desc">Mini-implementation of OpenFold for protein structure prediction using PyTorch, CUDA, and NVIDIA tensor cores with GPU optimization.</div>
-        <div class="project-tags">
-          <span class="project-tag">PyTorch</span><span class="project-tag">CUDA</span><span class="project-tag">Deep Learning</span><span class="project-tag">GPU</span>
+      <div class="section-content reveal">
+
+        <div class="entry-row">
+          <div class="entry-meta">
+            <span class="meta">Sept 2023 &ndash; Dec 2025</span>
+            <h3>M.S. Computer Science</h3>
+          </div>
+          <div class="entry-detail">
+            <h3>Northeastern University</h3>
+            <span class="meta">Boston, MA &middot; GPA: 4.0 / 4.0</span>
+            <p class="coursework"><strong>Coursework:</strong> Deep Learning, MLOps, Unsupervised Machine Learning, Algorithms, Database Systems, Cloud Computing (AWS), Program Design Paradigm</p>
+          </div>
         </div>
-      </div>
-      <div class="project-card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
-    </a>
 
-    <a href="https://github.com/rishimule/chess_agent" target="_blank" class="project-card reveal reveal-delay-1">
-      <div class="project-card-visual">
-        <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#30d158;stop-opacity:0.15"/><stop offset="100%" style="stop-color:#2997ff;stop-opacity:0.15"/></linearGradient></defs><rect fill="url(#g2)" width="400" height="200"/><g stroke="rgba(48,209,88,0.1)" fill="none"><rect x="120" y="40" width="40" height="40" rx="4"/><rect x="160" y="40" width="40" height="40" rx="4"/><rect x="200" y="40" width="40" height="40" rx="4"/><rect x="120" y="80" width="40" height="40" rx="4"/><rect x="160" y="80" width="40" height="40" rx="4"/><rect x="200" y="80" width="40" height="40" rx="4"/><rect x="120" y="120" width="40" height="40" rx="4"/><rect x="160" y="120" width="40" height="40" rx="4"/><rect x="200" y="120" width="40" height="40" rx="4"/></g></svg>
-      </div>
-      <div class="project-card-body">
-        <div class="project-card-title">Chess Agent</div>
-        <div class="project-card-desc">AI chess engine built with minimax algorithm and alpha-beta pruning, handling all game rules including special moves.</div>
-        <div class="project-tags">
-          <span class="project-tag">Python</span><span class="project-tag">AI</span><span class="project-tag">Minimax</span><span class="project-tag">Game Engine</span>
+        <div class="entry-row">
+          <div class="entry-meta">
+            <span class="meta">Aug 2019 &ndash; May 2023</span>
+            <h3>B.E. Computer Engineering</h3>
+          </div>
+          <div class="entry-detail">
+            <h3>University of Mumbai</h3>
+            <span class="meta">Mumbai, India &middot; GPA: 9.7 / 10.0</span>
+            <p>Built a strong foundation in programming, algorithms, and system design. Capstone project: a personalized tourism recommender system with an integrated chatbot, published in an international journal.</p>
+          </div>
         </div>
-      </div>
-      <div class="project-card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
-    </a>
 
-    <a href="https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews" target="_blank" class="project-card reveal reveal-delay-2">
-      <div class="project-card-visual">
-        <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ff9f0a;stop-opacity:0.15"/><stop offset="100%" style="stop-color:#ff375f;stop-opacity:0.15"/></linearGradient></defs><rect fill="url(#g3)" width="400" height="200"/><g stroke="rgba(255,159,10,0.12)" fill="none" stroke-width="0.8"><circle cx="200" cy="100" r="60"/><circle cx="200" cy="100" r="40"/><circle cx="200" cy="100" r="20"/><line x1="140" y1="100" x2="260" y2="100"/><line x1="200" y1="40" x2="200" y2="160"/></g></svg>
       </div>
-      <div class="project-card-body">
-        <div class="project-card-title">Sentiment Analysis — Movie Reviews</div>
-        <div class="project-card-desc">NLP pipeline using LSTM and Conv1D architectures on IMDb dataset for text sentiment classification with TensorFlow.</div>
-        <div class="project-tags">
-          <span class="project-tag">NLP</span><span class="project-tag">TensorFlow</span><span class="project-tag">LSTM</span><span class="project-tag">Conv1D</span>
+    </div>
+  </section>
+
+  <!-- Selected Work -->
+  <section class="section" id="work">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Selected Work</h2>
+      </div>
+      <div class="section-content">
+        <div class="projects-container">
+
+          <!-- Featured: OpenFold -->
+          <div class="project-featured reveal">
+            <div>
+              <div class="project-number">i</div>
+              <h3 class="project-title"><a href="https://expo.baulab.info/public/2025-Spring/rishimule/" target="_blank" rel="noopener">OpenFold Protein Structure Prediction</a></h3>
+              <p class="project-desc">A mini-implementation of OpenFold for protein structure prediction, built with PyTorch and optimized for NVIDIA tensor cores using CUDA. Focused on GPU-level performance tuning for computationally intensive biological modeling.</p>
+              <div class="project-tags">
+                <span class="project-tag">PyTorch</span>
+                <span class="project-tag">CUDA</span>
+                <span class="project-tag">Deep Learning</span>
+                <span class="project-tag">GPU Optimization</span>
+              </div>
+              <a href="https://expo.baulab.info/public/2025-Spring/rishimule/" target="_blank" rel="noopener" class="project-link">View Project &rarr;</a>
+            </div>
+            <div>
+              <div class="project-number"></div>
+            </div>
+          </div>
+
+          <!-- Pair: Chess Agent + Sentiment Analysis -->
+          <div class="project-pair">
+            <div class="project-card reveal">
+              <div class="project-number">ii</div>
+              <h3 class="project-title"><a href="https://github.com/rishimule/chess_agent" target="_blank" rel="noopener">Chess Agent</a></h3>
+              <p class="project-desc">An AI chess engine using minimax with alpha-beta pruning, handling all standard rules including castling, en passant, and promotion.</p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">AI</span>
+                <span class="project-tag">Minimax</span>
+                <span class="project-tag">Game Engine</span>
+              </div>
+              <a href="https://github.com/rishimule/chess_agent" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+            </div>
+            <div class="project-card reveal">
+              <div class="project-number">iii</div>
+              <h3 class="project-title"><a href="https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews" target="_blank" rel="noopener">Sentiment Analysis</a></h3>
+              <p class="project-desc">An NLP pipeline for text sentiment classification on the IMDb dataset, comparing LSTM and Conv1D architectures built with TensorFlow.</p>
+              <div class="project-tags">
+                <span class="project-tag">NLP</span>
+                <span class="project-tag">TensorFlow</span>
+                <span class="project-tag">LSTM</span>
+                <span class="project-tag">Conv1D</span>
+              </div>
+              <a href="https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Featured: Tourism Recommender -->
+          <div class="project-featured reveal">
+            <div>
+              <div class="project-number">iv</div>
+              <h3 class="project-title"><a href="https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot" target="_blank" rel="noopener">Tourism Recommender &amp; Chatbot</a></h3>
+              <p class="project-desc">A rule-based recommender system with a Google Dialogflow chatbot integration, weighted scoring engine, and responsive web interface. Published in IJRASET.</p>
+              <div class="project-tags">
+                <span class="project-tag">Dialogflow</span>
+                <span class="project-tag">Cloud</span>
+                <span class="project-tag">Web App</span>
+                <span class="project-tag">Published</span>
+              </div>
+              <a href="https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+            </div>
+            <div>
+              <div class="project-number"></div>
+            </div>
+          </div>
+
+          <!-- Single: Neural Network -->
+          <div class="project-pair">
+            <div class="project-card reveal">
+              <div class="project-number">v</div>
+              <h3 class="project-title"><a href="https://github.com/rishimule/mnist_nn" target="_blank" rel="noopener">Neural Network From Scratch</a></h3>
+              <p class="project-desc">A modular neural network implementation for MNIST digit recognition with custom forward and backpropagation, multiple optimizers, and loss functions&mdash;no frameworks, just NumPy.</p>
+              <div class="project-tags">
+                <span class="project-tag">Neural Networks</span>
+                <span class="project-tag">MNIST</span>
+                <span class="project-tag">Python</span>
+              </div>
+              <a href="https://github.com/rishimule/mnist_nn" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
+            </div>
+            <div></div>
+          </div>
+
         </div>
       </div>
-      <div class="project-card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
-    </a>
+    </div>
+  </section>
 
-    <a href="https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot" target="_blank" class="project-card reveal reveal-delay-3">
-      <div class="project-card-visual">
-        <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#bf5af2;stop-opacity:0.15"/><stop offset="100%" style="stop-color:#ff375f;stop-opacity:0.15"/></linearGradient></defs><rect fill="url(#g4)" width="400" height="200"/><g stroke="rgba(191,90,242,0.12)" fill="none"><path d="M100 160 L150 80 L200 120 L250 60 L300 100 L350 40" stroke-width="1.5"/><circle cx="150" cy="80" r="4" fill="rgba(191,90,242,0.3)"/><circle cx="250" cy="60" r="4" fill="rgba(191,90,242,0.3)"/><circle cx="350" cy="40" r="4" fill="rgba(191,90,242,0.3)"/></g></svg>
+  <!-- Technical Expertise -->
+  <section class="section" id="skills">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Technical Expertise</h2>
       </div>
-      <div class="project-card-body">
-        <div class="project-card-title">Tourism Recommender + Chatbot</div>
-        <div class="project-card-desc">Rule-based recommender system with Google Dialogflow chatbot, weighted scoring, and responsive UI — published in IJRASET.</div>
-        <div class="project-tags">
-          <span class="project-tag">Dialogflow</span><span class="project-tag">Cloud</span><span class="project-tag">Web App</span><span class="project-tag">Published</span>
+      <div class="section-content reveal">
+
+        <div class="skill-row">
+          <div class="skill-category">Languages</div>
+          <div class="skill-list"><code>Python</code>, <code>Java</code>, <code>JavaScript</code>, <code>TypeScript</code>, <code>SQL</code>, <code>C/C++</code></div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">AI / ML</div>
+          <div class="skill-list"><code>PyTorch</code>, <code>TensorFlow</code>, <code>CUDA</code>, Deep Learning, NLP, Computer Vision, MLOps</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Web &amp; Frameworks</div>
+          <div class="skill-list"><code>Django</code>, <code>Node.js</code>, <code>React</code>, REST APIs, HTML/CSS</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Cloud &amp; DevOps</div>
+          <div class="skill-list"><code>AWS</code>, <code>Azure</code>, <code>Docker</code>, <code>Git</code>, CI/CD, Google Cloud</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Publication -->
+  <section class="section" id="publication">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Publication</h2>
+      </div>
+      <div class="section-content reveal">
+        <div class="citation">
+          <p class="citation-title">TRS &ndash; A Rule Based Personalized Tourism Recommender System</p>
+          <p class="citation-journal">International Journal for Research in Applied Science &amp; Engineering Technology (IJRASET) &mdash; Volume 10, Issue X &mdash; October 31, 2022</p>
+          <a href="https://doi.org/10.22214/ijraset.2022.47172" target="_blank" rel="noopener" class="link-gold">View Publication &rarr;</a>
         </div>
       </div>
-      <div class="project-card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
-    </a>
+    </div>
+  </section>
 
-    <a href="https://github.com/rishimule/mnist_nn" target="_blank" class="project-card reveal">
-      <div class="project-card-visual">
-        <svg class="mesh" viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2997ff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:#30d158;stop-opacity:0.1"/></linearGradient></defs><rect fill="url(#g5)" width="400" height="200"/><g stroke="rgba(41,151,255,0.12)" fill="none"><circle cx="100" cy="70" r="8"/><circle cx="100" cy="100" r="8"/><circle cx="100" cy="130" r="8"/><circle cx="200" cy="60" r="8"/><circle cx="200" cy="90" r="8"/><circle cx="200" cy="120" r="8"/><circle cx="200" cy="150" r="8"/><circle cx="300" cy="85" r="8"/><circle cx="300" cy="115" r="8"/><line x1="108" y1="70" x2="192" y2="60"/><line x1="108" y1="70" x2="192" y2="90"/><line x1="108" y1="100" x2="192" y2="90"/><line x1="108" y1="100" x2="192" y2="120"/><line x1="108" y1="130" x2="192" y2="120"/><line x1="108" y1="130" x2="192" y2="150"/><line x1="208" y1="60" x2="292" y2="85"/><line x1="208" y1="90" x2="292" y2="85"/><line x1="208" y1="120" x2="292" y2="115"/><line x1="208" y1="150" x2="292" y2="115"/></g></svg>
+  <!-- Certifications -->
+  <section class="section" id="certifications">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Certifications</h2>
       </div>
-      <div class="project-card-body">
-        <div class="project-card-title">Neural Network From Scratch</div>
-        <div class="project-card-desc">Modular neural network implementation for MNIST digit recognition with custom forward/backpropagation, optimizers, and loss functions.</div>
-        <div class="project-tags">
-          <span class="project-tag">Neural Net</span><span class="project-tag">MNIST</span><span class="project-tag">From Scratch</span><span class="project-tag">Python</span>
-        </div>
-      </div>
-      <div class="project-card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></div>
-    </a>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="reveal">
-    <span class="section-label">05 — Skills</span>
-    <h2 class="section-title">Technical <span class="gradient">toolkit.</span></h2>
-  </div>
-  <div class="skills-container">
-    <div class="skills-category reveal">
-      <div class="skills-category-title">Languages</div>
-      <div class="skills-pills">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Java</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">TypeScript</span>
-        <span class="skill-pill">SQL</span>
-        <span class="skill-pill">C/C++</span>
+      <div class="section-content reveal">
+        <ol class="cert-list">
+          <li>
+            <span class="cert-name">Data Encryption using AWS KMS</span> &mdash;
+            <span class="cert-provider">UST via Coursera, Dec 2022</span> &mdash;
+            <a href="https://www.coursera.org/account/accomplishments/certificate/JJDLFFMWTH6C" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+          <li>
+            <span class="cert-name">Google Cloud Fundamentals: Core Infrastructure</span> &mdash;
+            <span class="cert-provider">Google Cloud Skills Boost, Dec 2022</span> &mdash;
+            <a href="https://www.cloudskillsboost.google/public_profiles/adb405b9-2f69-4514-bfc6-4c091b5b9dcc/badges/3011920" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+          <li>
+            <span class="cert-name">Database Operations in MariaDB Using Python</span> &mdash;
+            <span class="cert-provider">Infosys via Coursera, Nov 2022</span> &mdash;
+            <a href="https://www.coursera.org/account/accomplishments/verify/VM4GWAWSG95B" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+          <li>
+            <span class="cert-name">Deep Learning with PyTorch: GAN</span> &mdash;
+            <span class="cert-provider">Coursera, Nov 2022</span> &mdash;
+            <a href="https://www.coursera.org/account/accomplishments/verify/J5BBCE4BDMSG" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+          <li>
+            <span class="cert-name">Getting Started with Azure DevOps Boards</span> &mdash;
+            <span class="cert-provider">Coursera, Nov 2022</span> &mdash;
+            <a href="https://www.coursera.org/account/accomplishments/verify/ZR5DL5DH9RMK" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+          <li>
+            <span class="cert-name">Introduction to Big Data</span> &mdash;
+            <span class="cert-provider">UC San Diego via Coursera, Oct 2022</span> &mdash;
+            <a href="https://www.coursera.org/account/accomplishments/verify/JTN8XKEB2RRL" target="_blank" rel="noopener" class="cert-link">Verify</a>
+          </li>
+        </ol>
       </div>
     </div>
-    <div class="skills-category reveal reveal-delay-1">
-      <div class="skills-category-title">AI / ML</div>
-      <div class="skills-pills">
-        <span class="skill-pill">PyTorch</span>
-        <span class="skill-pill">TensorFlow</span>
-        <span class="skill-pill">CUDA</span>
-        <span class="skill-pill">Deep Learning</span>
-        <span class="skill-pill">NLP</span>
-        <span class="skill-pill">Computer Vision</span>
-        <span class="skill-pill">MLOps</span>
-      </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-monogram">RM</div>
+    <div class="footer-contact">
+      <a href="mailto:mule.ri@northeastern.edu">mule.ri@northeastern.edu</a>
+      <a href="tel:+18578329643">857-832-9643</a>
     </div>
-    <div class="skills-category reveal reveal-delay-2">
-      <div class="skills-category-title">Web & Frameworks</div>
-      <div class="skills-pills">
-        <span class="skill-pill">Django</span>
-        <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">React</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">HTML/CSS</span>
-      </div>
-    </div>
-    <div class="skills-category reveal reveal-delay-3">
-      <div class="skills-category-title">Cloud & DevOps</div>
-      <div class="skills-pills">
-        <span class="skill-pill">AWS</span>
-        <span class="skill-pill">Azure</span>
-        <span class="skill-pill">Docker</span>
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">CI/CD</span>
-        <span class="skill-pill">Google Cloud</span>
-      </div>
+    <div class="footer-social">
+      <a href="https://github.com/rishimule" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/rishi-mule/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
-</section>
-
-<!-- PUBLICATION -->
-<section id="publication">
-  <div class="reveal">
-    <span class="section-label">06 — Publication</span>
-    <h2 class="section-title">Research <span class="gradient">work.</span></h2>
-  </div>
-  <div class="pub-card reveal">
-    <div class="pub-title">TRS – A Rule Based Personalized Tourism Recommender System</div>
-    <div class="pub-journal">International Journal for Research in Applied Science & Engineering Technology (IJRASET) — Volume 10, Issue X</div>
-    <div class="pub-date">October 31, 2022</div>
-    <a href="https://doi.org/10.22214/ijraset.2022.47172" target="_blank" class="btn-secondary" style="display:inline-flex;">
-      View Publication
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="reveal">
-    <span class="section-label">07 — Certifications</span>
-    <h2 class="section-title">Credentials.</h2>
-  </div>
-  <div class="certs-grid">
-    <a href="https://www.coursera.org/account/accomplishments/certificate/JJDLFFMWTH6C" target="_blank" class="cert-card reveal">
-      <div class="cert-name">Data Encryption using AWS KMS</div>
-      <div class="cert-issuer">UST via Coursera &bull; Dec 2022</div>
-    </a>
-    <a href="https://www.cloudskillsboost.google/public_profiles/adb405b9-2f69-4514-bfc6-4c091b5b9dcc/badges/3011920" target="_blank" class="cert-card reveal reveal-delay-1">
-      <div class="cert-name">Google Cloud Fundamentals: Core Infrastructure</div>
-      <div class="cert-issuer">Google Cloud Skills Boost &bull; Dec 2022</div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/verify/VM4GWAWSG95B" target="_blank" class="cert-card reveal reveal-delay-2">
-      <div class="cert-name">Database Operations in MariaDB Using Python</div>
-      <div class="cert-issuer">Infosys via Coursera &bull; Nov 2022</div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/verify/J5BBCE4BDMSG" target="_blank" class="cert-card reveal reveal-delay-1">
-      <div class="cert-name">Deep Learning with PyTorch: GAN</div>
-      <div class="cert-issuer">Coursera &bull; Nov 2022</div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/verify/ZR5DL5DH9RMK" target="_blank" class="cert-card reveal reveal-delay-2">
-      <div class="cert-name">Getting Started with Azure DevOps Boards</div>
-      <div class="cert-issuer">Coursera &bull; Nov 2022</div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/verify/JTN8XKEB2RRL" target="_blank" class="cert-card reveal reveal-delay-3">
-      <div class="cert-name">Introduction to Big Data</div>
-      <div class="cert-issuer">UC San Diego via Coursera &bull; Oct 2022</div>
-    </a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="reveal">
-    <span class="section-label">08 — Contact</span>
-    <h2 class="section-title">Let's <span class="gradient">connect.</span></h2>
-    <p class="section-subtitle" style="margin: 0 auto 8px;">Open to AI/ML opportunities, collaborations, and interesting conversations.</p>
-  </div>
-  <div class="contact-links reveal reveal-delay-1">
-    <a href="mailto:mule.ri@northeastern.edu" class="contact-chip">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
-      mule.ri@northeastern.edu
-    </a>
-    <a href="https://github.com/rishimule" target="_blank" class="contact-chip">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/rishi-mule/" target="_blank" class="contact-chip">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-    <a href="tel:857-832-9643" class="contact-chip">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      857-832-9643
-    </a>
-    <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="contact-chip contact-chip-accent" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download Resume
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2026 Rishi Mule. Built with precision.</p>
+  <div class="footer-copyright">&copy; 2026 Rishi Mule</div>
 </footer>
 
 <script src="assets/js/main.js"></script>
