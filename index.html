@@ -8,6 +8,14 @@
   <meta name="description" content="Portfolio of Rishi Mule — Software Engineer specializing in machine learning, full-stack development, and cloud computing.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -23,6 +31,11 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
+        <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
+        <span class="theme-divider">&middot;</span>
+        <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
+      </div>
       <a href="#" class="nav-resume" id="resumeOpen">Resume</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
@@ -31,6 +44,11 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
+  <div class="theme-toggle mobile-theme-toggle" role="radiogroup" aria-label="Theme selection">
+    <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
+    <span class="theme-divider">&middot;</span>
+    <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
+  </div>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>

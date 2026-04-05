@@ -72,6 +72,38 @@
     });
   }
 
+  /* --- Theme Toggle --- */
+  var themeToggles = document.querySelectorAll('.theme-option');
+  var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+
+  function setTheme(theme) {
+    document.documentElement.classList.add('theme-transitioning');
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    themeToggles.forEach(function (btn) {
+      var isActive = btn.getAttribute('data-theme') === theme;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    setTimeout(function () {
+      document.documentElement.classList.remove('theme-transitioning');
+    }, 600);
+  }
+
+  themeToggles.forEach(function (btn) {
+    var isActive = btn.getAttribute('data-theme') === currentTheme;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+
+  themeToggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(btn.getAttribute('data-theme'));
+    });
+  });
+
   /* --- Resume Modal --- */
   var modal = document.getElementById('resumeModal');
   var iframe = document.getElementById('resumeIframe');
