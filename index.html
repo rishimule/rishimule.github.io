@@ -32,11 +32,10 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
-        <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
-        <span class="theme-divider">&middot;</span>
-        <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
-      </div>
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to evening theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="18.9" y1="8" x2="15.5" y2="10"/><line x1="18.9" y1="16" x2="15.5" y2="14"/><line x1="12" y1="20" x2="12" y2="16"/><line x1="5.1" y1="16" x2="8.5" y2="14"/><line x1="5.1" y1="8" x2="8.5" y2="10"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      </button>
       <a href="#" class="nav-resume" id="resumeOpen">Resume</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
@@ -45,11 +44,10 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="theme-toggle mobile-theme-toggle" role="radiogroup" aria-label="Theme selection">
-    <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
-    <span class="theme-divider">&middot;</span>
-    <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
-  </div>
+  <button class="theme-toggle-btn mobile-theme-toggle-btn" id="themeToggleMobile" aria-label="Switch to evening theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="18.9" y1="8" x2="15.5" y2="10"/><line x1="18.9" y1="16" x2="15.5" y2="14"/><line x1="12" y1="20" x2="12" y2="16"/><line x1="5.1" y1="16" x2="8.5" y2="14"/><line x1="5.1" y1="8" x2="8.5" y2="10"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+  </button>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
