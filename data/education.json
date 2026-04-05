@@ -1,0 +1,22 @@
+[
+  {
+    "degree": "M.S. Computer Science",
+    "institution": "Northeastern University",
+    "location": "Boston, MA",
+    "startDate": "Sept 2023",
+    "endDate": "Dec 2025",
+    "gpa": "4.0 / 4.0",
+    "coursework": "Deep Learning, MLOps, Unsupervised Machine Learning, Algorithms, Database Systems, Cloud Computing (AWS), Program Design Paradigm",
+    "description": null
+  },
+  {
+    "degree": "B.E. Computer Engineering",
+    "institution": "University of Mumbai",
+    "location": "Mumbai, India",
+    "startDate": "Aug 2019",
+    "endDate": "May 2023",
+    "gpa": "9.7 / 10.0",
+    "coursework": null,
+    "description": "Built a strong foundation in programming, algorithms, and system design. Capstone project: a personalized tourism recommender system with an integrated chatbot, published in an international journal."
+  }
+]

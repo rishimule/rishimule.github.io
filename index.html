@@ -16,7 +16,8 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <noscript><style>.section-content,.hero-text,.hero-portrait,.footer-contact,.footer-social{opacity:1;transform:none;}</style></noscript>
 </head>
 <body>
 
@@ -31,11 +32,10 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
-        <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
-        <span class="theme-divider">&middot;</span>
-        <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
-      </div>
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to evening theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="18.9" y1="8" x2="15.5" y2="10"/><line x1="18.9" y1="16" x2="15.5" y2="14"/><line x1="12" y1="20" x2="12" y2="16"/><line x1="5.1" y1="16" x2="8.5" y2="14"/><line x1="5.1" y1="8" x2="8.5" y2="10"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      </button>
       <a href="#" class="nav-resume" id="resumeOpen">Resume</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
@@ -44,11 +44,10 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="theme-toggle mobile-theme-toggle" role="radiogroup" aria-label="Theme selection">
-    <button class="theme-option" data-theme="light" aria-pressed="false">Day</button>
-    <span class="theme-divider">&middot;</span>
-    <button class="theme-option" data-theme="dark" aria-pressed="false">Evening</button>
-  </div>
+  <button class="theme-toggle-btn mobile-theme-toggle-btn" id="themeToggleMobile" aria-label="Switch to evening theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="18.9" y1="8" x2="15.5" y2="10"/><line x1="18.9" y1="16" x2="15.5" y2="14"/><line x1="12" y1="20" x2="12" y2="16"/><line x1="5.1" y1="16" x2="8.5" y2="14"/><line x1="5.1" y1="8" x2="8.5" y2="10"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+  </button>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
@@ -68,33 +67,30 @@
     <div class="modal-body">
       <iframe id="resumeIframe" title="Resume"></iframe>
     </div>
-    <div class="modal-fallback">
+    <div class="modal-fallback" id="resumeFallback">
       <p>Resume preview is not available on this device.</p>
-      <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="btn-modal btn-modal-primary">Open Resume</a>
     </div>
-    <div class="modal-footer">
-      <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="btn-modal btn-modal-primary">Open in New Tab</a>
-      <a href="./assets/Rishi_Mule_Resume.pdf" download class="btn-modal">Download</a>
+    <div class="modal-footer" id="resumeFooter">
+      <!-- Populated by main.js from data/personal.json -->
     </div>
   </div>
 </div>
+
+<noscript>
+  <div style="max-width:800px;margin:120px auto 40px;padding:0 40px;font-family:Georgia,serif;text-align:center;">
+    <p>This portfolio requires JavaScript to load content.</p>
+  </div>
+</noscript>
 
 <main>
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div class="hero-text reveal">
-      <h1>Rishi<br>Mule</h1>
-      <p class="hero-subtitle">Software Engineer &amp; Machine Learning Practitioner</p>
-      <div class="hero-links">
-        <a href="#work" class="link-gold">View Selected Work &darr;</a>
-        <a href="./assets/Rishi_Mule_Resume.pdf" target="_blank" class="link-gold">Download Resume &rarr;</a>
-      </div>
+    <div class="hero-text reveal" id="hero-text">
+      <!-- Populated by main.js from data/personal.json -->
     </div>
-    <div class="hero-portrait reveal">
-      <div class="portrait-frame">
-        <img src="assets/images/profile.png" alt="Rishi Mule" width="356" height="475">
-      </div>
+    <div class="hero-portrait reveal" id="hero-portrait">
+      <!-- Populated by main.js from data/personal.json -->
     </div>
   </section>
 
@@ -104,9 +100,8 @@
       <div class="section-label reveal">
         <h2>About</h2>
       </div>
-      <div class="section-content about-content reveal">
-        <p>I'm a software engineer with a focus on building systems that sit at the intersection of applied machine learning and production software. Over the past five years, I've worked across the stack&mdash;from writing serial communication tools for embedded hardware to training deep learning models for protein structure prediction.</p>
-        <p>Right now I'm completing my Master's in Computer Science at Northeastern University, where I hold a 4.0 GPA, with deep coursework in deep learning, unsupervised ML, and MLOps. Before that, I earned my Bachelor's in Computer Engineering from the University of Mumbai with a 9.7/10.0 GPA. I've published one research paper and I'm always looking for problems where careful engineering and good data can make a real difference.</p>
+      <div class="section-content about-content reveal" id="about-content">
+        <!-- Populated by main.js from data/personal.json -->
       </div>
     </div>
   </section>
@@ -117,44 +112,8 @@
       <div class="section-label reveal">
         <h2>Experience</h2>
       </div>
-      <div class="section-content reveal">
-
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="meta">Sept &ndash; Dec 2024</span>
-            <h3>Thermobionics</h3>
-          </div>
-          <div class="entry-detail">
-            <h3>Software Developer Intern</h3>
-            <span class="meta">Boston, MA</span>
-            <p>Designed and built a desktop application for wireless PIC microcontroller communication, improving data transmission efficiency by 30%. Developed serial communication tools for device initialization and data parsing, reducing manual configuration time by 40%. Performed high-volume sensor data analysis to identify patterns and optimize system performance.</p>
-          </div>
-        </div>
-
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="meta">June &ndash; Sept 2022</span>
-            <h3>InfoInnotronics</h3>
-          </div>
-          <div class="entry-detail">
-            <h3>Software Engineer Intern</h3>
-            <span class="meta">Pune, India</span>
-            <p>Developed a real-time energy monitoring system using Python's serial library, achieving 99% data accuracy. Streamlined hardware-software integration across cross-functional teams, resulting in a 20% improvement in energy system efficiency.</p>
-          </div>
-        </div>
-
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="meta">Jan &ndash; Apr 2022</span>
-            <h3>TCR Innovations</h3>
-          </div>
-          <div class="entry-detail">
-            <h3>Data Science Intern</h3>
-            <span class="meta">Mumbai, India</span>
-            <p>Built predictive models using machine learning algorithms on large datasets for HR retention analysis. Conducted exploratory data analysis to surface actionable insights. Optimized a Random Forest classifier to 94% accuracy through systematic hyperparameter tuning.</p>
-          </div>
-        </div>
-
+      <div class="section-content reveal" id="experience-content">
+        <!-- Populated by main.js from data/experience.json -->
       </div>
     </div>
   </section>
@@ -165,32 +124,8 @@
       <div class="section-label reveal">
         <h2>Education</h2>
       </div>
-      <div class="section-content reveal">
-
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="meta">Sept 2023 &ndash; Dec 2025</span>
-            <h3>M.S. Computer Science</h3>
-          </div>
-          <div class="entry-detail">
-            <h3>Northeastern University</h3>
-            <span class="meta">Boston, MA &middot; GPA: 4.0 / 4.0</span>
-            <p class="coursework"><strong>Coursework:</strong> Deep Learning, MLOps, Unsupervised Machine Learning, Algorithms, Database Systems, Cloud Computing (AWS), Program Design Paradigm</p>
-          </div>
-        </div>
-
-        <div class="entry-row">
-          <div class="entry-meta">
-            <span class="meta">Aug 2019 &ndash; May 2023</span>
-            <h3>B.E. Computer Engineering</h3>
-          </div>
-          <div class="entry-detail">
-            <h3>University of Mumbai</h3>
-            <span class="meta">Mumbai, India &middot; GPA: 9.7 / 10.0</span>
-            <p>Built a strong foundation in programming, algorithms, and system design. Capstone project: a personalized tourism recommender system with an integrated chatbot, published in an international journal.</p>
-          </div>
-        </div>
-
+      <div class="section-content reveal" id="education-content">
+        <!-- Populated by main.js from data/education.json -->
       </div>
     </div>
   </section>
@@ -201,92 +136,8 @@
       <div class="section-label reveal">
         <h2>Selected Work</h2>
       </div>
-      <div class="section-content">
-        <div class="projects-container">
-
-          <!-- Featured: OpenFold -->
-          <div class="project-featured reveal">
-            <div>
-              <div class="project-number">i</div>
-              <h3 class="project-title"><a href="https://expo.baulab.info/public/2025-Spring/rishimule/" target="_blank" rel="noopener">OpenFold Protein Structure Prediction</a></h3>
-              <p class="project-desc">A mini-implementation of OpenFold for protein structure prediction, built with PyTorch and optimized for NVIDIA tensor cores using CUDA. Focused on GPU-level performance tuning for computationally intensive biological modeling.</p>
-              <div class="project-tags">
-                <span class="project-tag">PyTorch</span>
-                <span class="project-tag">CUDA</span>
-                <span class="project-tag">Deep Learning</span>
-                <span class="project-tag">GPU Optimization</span>
-              </div>
-              <a href="https://expo.baulab.info/public/2025-Spring/rishimule/" target="_blank" rel="noopener" class="project-link">View Project &rarr;</a>
-            </div>
-            <div>
-              <div class="project-number"></div>
-            </div>
-          </div>
-
-          <!-- Pair: Chess Agent + Sentiment Analysis -->
-          <div class="project-pair">
-            <div class="project-card reveal">
-              <div class="project-number">ii</div>
-              <h3 class="project-title"><a href="https://github.com/rishimule/chess_agent" target="_blank" rel="noopener">Chess Agent</a></h3>
-              <p class="project-desc">An AI chess engine using minimax with alpha-beta pruning, handling all standard rules including castling, en passant, and promotion.</p>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">AI</span>
-                <span class="project-tag">Minimax</span>
-                <span class="project-tag">Game Engine</span>
-              </div>
-              <a href="https://github.com/rishimule/chess_agent" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
-            </div>
-            <div class="project-card reveal">
-              <div class="project-number">iii</div>
-              <h3 class="project-title"><a href="https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews" target="_blank" rel="noopener">Sentiment Analysis</a></h3>
-              <p class="project-desc">An NLP pipeline for text sentiment classification on the IMDb dataset, comparing LSTM and Conv1D architectures built with TensorFlow.</p>
-              <div class="project-tags">
-                <span class="project-tag">NLP</span>
-                <span class="project-tag">TensorFlow</span>
-                <span class="project-tag">LSTM</span>
-                <span class="project-tag">Conv1D</span>
-              </div>
-              <a href="https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
-            </div>
-          </div>
-
-          <!-- Featured: Tourism Recommender -->
-          <div class="project-featured reveal">
-            <div>
-              <div class="project-number">iv</div>
-              <h3 class="project-title"><a href="https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot" target="_blank" rel="noopener">Tourism Recommender &amp; Chatbot</a></h3>
-              <p class="project-desc">A rule-based recommender system with a Google Dialogflow chatbot integration, weighted scoring engine, and responsive web interface. Published in IJRASET.</p>
-              <div class="project-tags">
-                <span class="project-tag">Dialogflow</span>
-                <span class="project-tag">Cloud</span>
-                <span class="project-tag">Web App</span>
-                <span class="project-tag">Published</span>
-              </div>
-              <a href="https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
-            </div>
-            <div>
-              <div class="project-number"></div>
-            </div>
-          </div>
-
-          <!-- Single: Neural Network -->
-          <div class="project-pair">
-            <div class="project-card reveal">
-              <div class="project-number">v</div>
-              <h3 class="project-title"><a href="https://github.com/rishimule/mnist_nn" target="_blank" rel="noopener">Neural Network From Scratch</a></h3>
-              <p class="project-desc">A modular neural network implementation for MNIST digit recognition with custom forward and backpropagation, multiple optimizers, and loss functions&mdash;no frameworks, just NumPy.</p>
-              <div class="project-tags">
-                <span class="project-tag">Neural Networks</span>
-                <span class="project-tag">MNIST</span>
-                <span class="project-tag">Python</span>
-              </div>
-              <a href="https://github.com/rishimule/mnist_nn" target="_blank" rel="noopener" class="project-link">View on GitHub &rarr;</a>
-            </div>
-            <div></div>
-          </div>
-
-        </div>
+      <div class="section-content" id="work-content">
+        <!-- Populated by main.js from data/projects.json -->
       </div>
     </div>
   </section>
@@ -297,28 +148,8 @@
       <div class="section-label reveal">
         <h2>Technical Expertise</h2>
       </div>
-      <div class="section-content reveal">
-
-        <div class="skill-row">
-          <div class="skill-category">Languages</div>
-          <div class="skill-list"><code>Python</code>, <code>Java</code>, <code>JavaScript</code>, <code>TypeScript</code>, <code>SQL</code>, <code>C/C++</code></div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-category">AI / ML</div>
-          <div class="skill-list"><code>PyTorch</code>, <code>TensorFlow</code>, <code>CUDA</code>, Deep Learning, NLP, Computer Vision, MLOps</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-category">Web &amp; Frameworks</div>
-          <div class="skill-list"><code>Django</code>, <code>Node.js</code>, <code>React</code>, REST APIs, HTML/CSS</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-category">Cloud &amp; DevOps</div>
-          <div class="skill-list"><code>AWS</code>, <code>Azure</code>, <code>Docker</code>, <code>Git</code>, CI/CD, Google Cloud</div>
-        </div>
-
+      <div class="section-content reveal" id="skills-content">
+        <!-- Populated by main.js from data/skills.json -->
       </div>
     </div>
   </section>
@@ -329,12 +160,8 @@
       <div class="section-label reveal">
         <h2>Publication</h2>
       </div>
-      <div class="section-content reveal">
-        <div class="citation">
-          <p class="citation-title">TRS &ndash; A Rule Based Personalized Tourism Recommender System</p>
-          <p class="citation-journal">International Journal for Research in Applied Science &amp; Engineering Technology (IJRASET) &mdash; Volume 10, Issue X &mdash; October 31, 2022</p>
-          <a href="https://doi.org/10.22214/ijraset.2022.47172" target="_blank" rel="noopener" class="link-gold">View Publication &rarr;</a>
-        </div>
+      <div class="section-content reveal" id="publication-content">
+        <!-- Populated by main.js from data/publications.json -->
       </div>
     </div>
   </section>
@@ -345,39 +172,8 @@
       <div class="section-label reveal">
         <h2>Certifications</h2>
       </div>
-      <div class="section-content reveal">
-        <ol class="cert-list">
-          <li>
-            <span class="cert-name">Data Encryption using AWS KMS</span> &mdash;
-            <span class="cert-provider">UST via Coursera, Dec 2022</span> &mdash;
-            <a href="https://www.coursera.org/account/accomplishments/certificate/JJDLFFMWTH6C" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-          <li>
-            <span class="cert-name">Google Cloud Fundamentals: Core Infrastructure</span> &mdash;
-            <span class="cert-provider">Google Cloud Skills Boost, Dec 2022</span> &mdash;
-            <a href="https://www.cloudskillsboost.google/public_profiles/adb405b9-2f69-4514-bfc6-4c091b5b9dcc/badges/3011920" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-          <li>
-            <span class="cert-name">Database Operations in MariaDB Using Python</span> &mdash;
-            <span class="cert-provider">Infosys via Coursera, Nov 2022</span> &mdash;
-            <a href="https://www.coursera.org/account/accomplishments/verify/VM4GWAWSG95B" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-          <li>
-            <span class="cert-name">Deep Learning with PyTorch: GAN</span> &mdash;
-            <span class="cert-provider">Coursera, Nov 2022</span> &mdash;
-            <a href="https://www.coursera.org/account/accomplishments/verify/J5BBCE4BDMSG" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-          <li>
-            <span class="cert-name">Getting Started with Azure DevOps Boards</span> &mdash;
-            <span class="cert-provider">Coursera, Nov 2022</span> &mdash;
-            <a href="https://www.coursera.org/account/accomplishments/verify/ZR5DL5DH9RMK" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-          <li>
-            <span class="cert-name">Introduction to Big Data</span> &mdash;
-            <span class="cert-provider">UC San Diego via Coursera, Oct 2022</span> &mdash;
-            <a href="https://www.coursera.org/account/accomplishments/verify/JTN8XKEB2RRL" target="_blank" rel="noopener" class="cert-link">Verify</a>
-          </li>
-        </ol>
+      <div class="section-content reveal" id="certifications-content">
+        <!-- Populated by main.js from data/certifications.json -->
       </div>
     </div>
   </section>
@@ -388,13 +184,11 @@
 <footer class="footer" id="contact">
   <div class="footer-inner">
     <div class="footer-monogram">RM</div>
-    <div class="footer-contact">
-      <a href="mailto:mule.ri@northeastern.edu">mule.ri@northeastern.edu</a>
-      <a href="tel:+18578329643">857-832-9643</a>
+    <div class="footer-contact" id="footer-contact">
+      <!-- Populated by main.js from data/personal.json -->
     </div>
-    <div class="footer-social">
-      <a href="https://github.com/rishimule" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/rishi-mule/" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="footer-social" id="footer-social">
+      <!-- Populated by main.js from data/personal.json -->
     </div>
   </div>
   <div class="footer-copyright">&copy; 2026 Rishi Mule</div>
