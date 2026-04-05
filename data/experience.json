@@ -1,0 +1,26 @@
+[
+  {
+    "company": "Thermobionics",
+    "role": "Software Developer Intern",
+    "location": "Boston, MA",
+    "startDate": "Sept",
+    "endDate": "Dec 2024",
+    "description": "Designed and built a desktop application for wireless PIC microcontroller communication, improving data transmission efficiency by 30%. Developed serial communication tools for device initialization and data parsing, reducing manual configuration time by 40%. Performed high-volume sensor data analysis to identify patterns and optimize system performance."
+  },
+  {
+    "company": "InfoInnotronics",
+    "role": "Software Engineer Intern",
+    "location": "Pune, India",
+    "startDate": "June",
+    "endDate": "Sept 2022",
+    "description": "Developed a real-time energy monitoring system using Python's serial library, achieving 99% data accuracy. Streamlined hardware-software integration across cross-functional teams, resulting in a 20% improvement in energy system efficiency."
+  },
+  {
+    "company": "TCR Innovations",
+    "role": "Data Science Intern",
+    "location": "Mumbai, India",
+    "startDate": "Jan",
+    "endDate": "Apr 2022",
+    "description": "Built predictive models using machine learning algorithms on large datasets for HR retention analysis. Conducted exploratory data analysis to surface actionable insights. Optimized a Random Forest classifier to 94% accuracy through systematic hyperparameter tuning."
+  }
+]

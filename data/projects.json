@@ -1,0 +1,42 @@
+[
+  {
+    "title": "OpenFold Protein Structure Prediction",
+    "description": "A mini-implementation of OpenFold for protein structure prediction, built with PyTorch and optimized for NVIDIA tensor cores using CUDA. Focused on GPU-level performance tuning for computationally intensive biological modeling.",
+    "tags": ["PyTorch", "CUDA", "Deep Learning", "GPU Optimization"],
+    "link": "https://expo.baulab.info/public/2025-Spring/rishimule/",
+    "linkText": "View Project",
+    "featured": true
+  },
+  {
+    "title": "Chess Agent",
+    "description": "An AI chess engine using minimax with alpha-beta pruning, handling all standard rules including castling, en passant, and promotion.",
+    "tags": ["Python", "AI", "Minimax", "Game Engine"],
+    "link": "https://github.com/rishimule/chess_agent",
+    "linkText": "View on GitHub",
+    "featured": false
+  },
+  {
+    "title": "Sentiment Analysis",
+    "description": "An NLP pipeline for text sentiment classification on the IMDb dataset, comparing LSTM and Conv1D architectures built with TensorFlow.",
+    "tags": ["NLP", "TensorFlow", "LSTM", "Conv1D"],
+    "link": "https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews",
+    "linkText": "View on GitHub",
+    "featured": false
+  },
+  {
+    "title": "Tourism Recommender & Chatbot",
+    "description": "A rule-based recommender system with a Google Dialogflow chatbot integration, weighted scoring engine, and responsive web interface. Published in IJRASET.",
+    "tags": ["Dialogflow", "Cloud", "Web App", "Published"],
+    "link": "https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot",
+    "linkText": "View on GitHub",
+    "featured": true
+  },
+  {
+    "title": "Neural Network From Scratch",
+    "description": "A modular neural network implementation for MNIST digit recognition with custom forward and backpropagation, multiple optimizers, and loss functions\u2014no frameworks, just NumPy.",
+    "tags": ["Neural Networks", "MNIST", "Python"],
+    "link": "https://github.com/rishimule/mnist_nn",
+    "linkText": "View on GitHub",
+    "featured": false
+  }
+]

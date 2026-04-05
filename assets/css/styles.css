@@ -960,6 +960,18 @@ code {
 }
 
 /* ============================================================
+   Loading State — prevent layout jump while JSON loads
+   ============================================================ */
+.section-content:empty {
+  min-height: 120px;
+}
+
+#hero-text:empty,
+#hero-portrait:empty {
+  min-height: 200px;
+}
+
+/* ============================================================
    Reveal Animations
    ============================================================ */
 .reveal {

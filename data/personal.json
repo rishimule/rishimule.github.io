@@ -1,0 +1,16 @@
+{
+  "name": "Rishi Mule",
+  "title": "Software Engineer & Machine Learning Practitioner",
+  "email": "mule.ri@northeastern.edu",
+  "phone": "857-832-9643",
+  "resumePath": "assets/Rishi_Mule_Resume.pdf",
+  "profileImage": "assets/images/profile.png",
+  "social": {
+    "github": "https://github.com/rishimule",
+    "linkedin": "https://www.linkedin.com/in/rishi-mule/"
+  },
+  "about": [
+    "I'm a software engineer with a focus on building systems that sit at the intersection of applied machine learning and production software. Over the past five years, I've worked across the stack\u2014from writing serial communication tools for embedded hardware to training deep learning models for protein structure prediction.",
+    "Right now I'm completing my Master's in Computer Science at Northeastern University, where I hold a 4.0 GPA, with deep coursework in deep learning, unsupervised ML, and MLOps. Before that, I earned my Bachelor's in Computer Engineering from the University of Mumbai with a 9.7/10.0 GPA. I've published one research paper and I'm always looking for problems where careful engineering and good data can make a real difference."
+  ]
+}
