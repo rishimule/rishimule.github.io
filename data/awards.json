@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Best Data Curation Plugin",
+    "event": "Video Understanding AI Hackathon",
+    "sponsors": "Voxel51 · Twelve Labs · Northeastern University",
+    "date": "April 2026",
+    "description": "Built a FiftyOne plugin in under 7 hours — multimodal embeddings + KMeans clustering to surface coverage gaps in video datasets.",
+    "link": "https://github.com/rishimule/video-content-gap-analyzer"
+  }
+]
