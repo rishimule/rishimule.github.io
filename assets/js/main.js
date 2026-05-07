@@ -36,9 +36,15 @@
   function renderExperience(entries) {
     document.getElementById('experience-content').innerHTML =
       entries.map(function (entry) {
-        var desc = Array.isArray(entry.description)
-          ? entry.description.map(function (d) { return '<p>' + d + '</p>'; }).join('')
-          : '<p>' + entry.description + '</p>';
+        var bullets = '';
+        if (Array.isArray(entry.bullets) && entry.bullets.length > 0) {
+          bullets =
+            '<ul class="experience-bullets">' +
+            entry.bullets.map(function (b) { return '<li>' + b + '</li>'; }).join('') +
+            '</ul>';
+        } else if (entry.description) {
+          bullets = '<p>' + entry.description + '</p>';
+        }
         return (
           '<div class="entry-row">' +
             '<div class="entry-meta">' +
@@ -48,7 +54,7 @@
             '<div class="entry-detail">' +
               '<h3>' + entry.role + '</h3>' +
               '<span class="meta">' + entry.location + '</span>' +
-              desc +
+              bullets +
             '</div>' +
           '</div>'
         );
@@ -107,16 +113,12 @@
     function buildFeatured(project, num) {
       return (
         '<div class="project-featured reveal">' +
-          '<div>' +
-            '<div class="project-number">' + num + '</div>' +
-            '<h3 class="project-title"><a href="' + project.link + '" target="_blank" rel="noopener">' + project.title + '</a></h3>' +
-            '<p class="project-desc">' + project.description + '</p>' +
-            buildTags(project.tags) +
-            '<a href="' + project.link + '" target="_blank" rel="noopener" class="project-link">' + (project.linkText || 'View Project') + ' &rarr;</a>' +
-          '</div>' +
-          '<div>' +
-            '<div class="project-number"></div>' +
-          '</div>' +
+          '<div class="project-number">' + num + '</div>' +
+          '<h3 class="project-title"><a href="' + project.link + '" target="_blank" rel="noopener">' + project.title + '</a></h3>' +
+          '<p class="project-desc">' + project.description + '</p>' +
+          buildBullets(project.bullets) +
+          buildTags(project.tags) +
+          '<a href="' + project.link + '" target="_blank" rel="noopener" class="project-link">' + (project.linkText || 'View Project') + ' &rarr;</a>' +
         '</div>'
       );
     }
@@ -127,10 +129,18 @@
           '<div class="project-number">' + num + '</div>' +
           '<h3 class="project-title"><a href="' + project.link + '" target="_blank" rel="noopener">' + project.title + '</a></h3>' +
           '<p class="project-desc">' + project.description + '</p>' +
+          buildBullets(project.bullets) +
           buildTags(project.tags) +
           '<a href="' + project.link + '" target="_blank" rel="noopener" class="project-link">' + (project.linkText || 'View on GitHub') + ' &rarr;</a>' +
         '</div>'
       );
+    }
+
+    function buildBullets(bullets) {
+      if (!bullets || bullets.length === 0) return '';
+      return '<ul class="project-bullets">' +
+        bullets.map(function (b) { return '<li>' + b + '</li>'; }).join('') +
+        '</ul>';
     }
 
     function buildTags(tags) {
@@ -199,6 +209,36 @@
         );
       }).join('') +
       '</ol>';
+  }
+
+  function renderAwards(awards) {
+    var container = document.getElementById('awards-content');
+    if (!container) return;
+    if (!Array.isArray(awards) || awards.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+    container.innerHTML = awards.map(function (award) {
+      var sponsors = award.sponsors ? '<p class="award-sponsors">' + award.sponsors + '</p>' : '';
+      var description = award.description ? '<p class="award-desc">' + award.description + '</p>' : '';
+      var linkHtml = award.link
+        ? '<a href="' + award.link + '" target="_blank" rel="noopener" class="award-link">View Project &rarr;</a>'
+        : '';
+      return (
+        '<div class="award-card reveal">' +
+          '<div class="award-meta">' +
+            '<span class="meta">' + award.date + '</span>' +
+            '<h3>' + award.title + '</h3>' +
+          '</div>' +
+          '<div class="award-detail">' +
+            '<h3>' + award.event + '</h3>' +
+            sponsors +
+            description +
+            linkHtml +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
   }
 
   function renderFooter(personal) {
@@ -397,7 +437,8 @@
         fetch('data/projects.json').then(function (r) { return r.json(); }),
         fetch('data/skills.json').then(function (r) { return r.json(); }),
         fetch('data/publications.json').then(function (r) { return r.json(); }),
-        fetch('data/certifications.json').then(function (r) { return r.json(); })
+        fetch('data/certifications.json').then(function (r) { return r.json(); }),
+        fetch('data/awards.json').then(function (r) { return r.json(); }).catch(function () { return []; })
       ]);
 
       var personal       = responses[0];
@@ -407,9 +448,11 @@
       var skills         = responses[4];
       var publications   = responses[5];
       var certifications = responses[6];
+      var awards         = responses[7];
 
       renderHero(personal);
       renderAbout(personal);
+      renderAwards(awards);
       renderExperience(experience);
       renderEducation(education);
       renderProjects(projects);

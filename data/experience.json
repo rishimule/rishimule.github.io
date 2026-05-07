@@ -5,7 +5,11 @@
     "location": "Boston, MA",
     "startDate": "Sept",
     "endDate": "Dec 2024",
-    "description": "Designed and built a desktop application for wireless PIC microcontroller communication, improving data transmission efficiency by 30%. Developed serial communication tools for device initialization and data parsing, reducing manual configuration time by 40%. Performed high-volume sensor data analysis to identify patterns and optimize system performance."
+    "bullets": [
+      "Built a React + Node.js analytics dashboard streaming live biometric data from hardware sensors — cut diagnostic latency by 25%",
+      "Architected a Flask REST API for IoT telemetry on AWS, sustaining 10,000+ requests per minute under load",
+      "Refactored legacy embedded C into modular Object-Oriented C++ — cut new feature deployment time by 20%"
+    ]
   },
   {
     "company": "InfoInnotronics",
@@ -13,7 +17,11 @@
     "location": "Pune, India",
     "startDate": "June",
     "endDate": "Sept 2022",
-    "description": "Developed a real-time energy monitoring system using Python's serial library, achieving 99% data accuracy. Streamlined hardware-software integration across cross-functional teams, resulting in a 20% improvement in energy system efficiency."
+    "bullets": [
+      "Designed Spring Boot microservices + Apache Kafka event pipeline ingesting 50,000+ voltage/current events per second",
+      "Trained a Scikit-Learn predictive model forecasting IC energy consumption spikes — 18% reduction in unexpected hardware failures during testing",
+      "Configured Jenkins CI/CD pipelines for regression testing — caught 95% of integration bugs pre-staging"
+    ]
   },
   {
     "company": "TCR Innovations",
@@ -21,6 +29,10 @@
     "location": "Mumbai, India",
     "startDate": "Jan",
     "endDate": "Apr 2022",
-    "description": "Built predictive models using machine learning algorithms on large datasets for HR retention analysis. Conducted exploratory data analysis to surface actionable insights. Optimized a Random Forest classifier to 94% accuracy through systematic hyperparameter tuning."
+    "bullets": [
+      "Built an Airflow ETL pipeline + Random Forest classifier for HR retention forecasting — 94% accuracy",
+      "Designed an NLTK + SpaCy NLP module categorizing exit-interview sentiment into 5 actionable risk areas",
+      "Deployed final models via Flask + Docker with MLflow tracking across 50+ training iterations"
+    ]
   }
 ]
