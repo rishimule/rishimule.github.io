@@ -27,9 +27,10 @@
     <a href="#" class="nav-monogram">RM</a>
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
+      <a href="#awards">Awards</a>
+      <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
       <button class="theme-toggle-btn" id="themeToggle" aria-label="Switch to evening theme">
@@ -49,9 +50,10 @@
     <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
   </button>
   <a href="#about">About</a>
+  <a href="#awards">Awards</a>
+  <a href="#work">Work</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
-  <a href="#work">Work</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
   <a href="#" id="resumeOpenMobile">Resume</a>
@@ -106,6 +108,30 @@
     </div>
   </section>
 
+  <!-- Awards -->
+  <section class="section" id="awards">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Awards</h2>
+      </div>
+      <div class="section-content reveal" id="awards-content">
+        <!-- Populated by main.js from data/awards.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Work -->
+  <section class="section" id="work">
+    <div class="section-grid">
+      <div class="section-label reveal">
+        <h2>Selected Work</h2>
+      </div>
+      <div class="section-content" id="work-content">
+        <!-- Populated by main.js from data/projects.json -->
+      </div>
+    </div>
+  </section>
+
   <!-- Experience -->
   <section class="section" id="experience">
     <div class="section-grid">
@@ -126,18 +152,6 @@
       </div>
       <div class="section-content reveal" id="education-content">
         <!-- Populated by main.js from data/education.json -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected Work -->
-  <section class="section" id="work">
-    <div class="section-grid">
-      <div class="section-label reveal">
-        <h2>Selected Work</h2>
-      </div>
-      <div class="section-content" id="work-content">
-        <!-- Populated by main.js from data/projects.json -->
       </div>
     </div>
   </section>
