@@ -113,17 +113,12 @@
     function buildFeatured(project, num) {
       return (
         '<div class="project-featured reveal">' +
-          '<div>' +
-            '<div class="project-number">' + num + '</div>' +
-            '<h3 class="project-title"><a href="' + project.link + '" target="_blank" rel="noopener">' + project.title + '</a></h3>' +
-            '<p class="project-desc">' + project.description + '</p>' +
-            buildBullets(project.bullets) +
-            buildTags(project.tags) +
-            '<a href="' + project.link + '" target="_blank" rel="noopener" class="project-link">' + (project.linkText || 'View Project') + ' &rarr;</a>' +
-          '</div>' +
-          '<div>' +
-            '<div class="project-number"></div>' +
-          '</div>' +
+          '<div class="project-number">' + num + '</div>' +
+          '<h3 class="project-title"><a href="' + project.link + '" target="_blank" rel="noopener">' + project.title + '</a></h3>' +
+          '<p class="project-desc">' + project.description + '</p>' +
+          buildBullets(project.bullets) +
+          buildTags(project.tags) +
+          '<a href="' + project.link + '" target="_blank" rel="noopener" class="project-link">' + (project.linkText || 'View Project') + ' &rarr;</a>' +
         '</div>'
       );
     }

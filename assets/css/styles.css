@@ -538,9 +538,7 @@ code {
 }
 
 .project-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: block;
   padding: 40px;
   background: var(--bg-secondary);
   transition: background 0.4s ease;
