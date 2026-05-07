@@ -1,18 +1,26 @@
 [
   {
     "category": "Languages",
-    "items": ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C/C++"]
+    "items": ["Python", "Java", "C/C++", "CUDA", "JavaScript", "TypeScript", "SQL", "Bash"]
   },
   {
     "category": "AI / ML",
-    "items": ["PyTorch", "TensorFlow", "CUDA", "Deep Learning", "NLP", "Computer Vision", "MLOps"]
+    "items": ["PyTorch", "TensorFlow", "LangChain", "LangGraph", "RAG", "MCP", "Scikit-Learn", "NLP", "Computer Vision", "MLOps", "Langfuse", "MLflow"]
   },
   {
-    "category": "Web & Frameworks",
-    "items": ["Django", "Node.js", "React", "REST APIs", "HTML/CSS"]
+    "category": "Backend & Web",
+    "items": ["Flask", "Django", "Node.js", "React", "Spring Boot", "REST APIs"]
+  },
+  {
+    "category": "Data & Databases",
+    "items": ["PostgreSQL", "MongoDB", "ChromaDB", "FAISS", "Redis", "Kafka", "Airflow", "Spark"]
   },
   {
     "category": "Cloud & DevOps",
-    "items": ["AWS", "Azure", "Docker", "Git", "CI/CD", "Google Cloud"]
+    "items": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "GitHub Actions", "Jenkins", "CI/CD"]
+  },
+  {
+    "category": "Protocols & Standards",
+    "items": ["REST", "OAuth 2.0", "JWT", "MCP", "BLE", "HIPAA"]
   }
 ]
