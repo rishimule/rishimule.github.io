@@ -1,41 +1,79 @@
 [
   {
-    "title": "OpenFold Protein Structure Prediction",
-    "description": "A mini-implementation of OpenFold for protein structure prediction, built with PyTorch and optimized for NVIDIA tensor cores using CUDA. Focused on GPU-level performance tuning for computationally intensive biological modeling.",
-    "tags": ["PyTorch", "CUDA", "Deep Learning", "GPU Optimization"],
+    "title": "Video Content Gap Analyzer",
+    "description": "FiftyOne plugin that surfaces coverage gaps in video datasets using Twelve Labs Marengo embeddings, KMeans clustering, and Pegasus video-language descriptions.",
+    "bullets": [
+      "Won \"Best Data Curation Plugin\" at the Voxel51 + Twelve Labs hackathon — built in under 7 hours",
+      "Auto-tuned KMeans with silhouette scoring; flags sparse and isolated clusters as underrepresented content",
+      "Outputs a single 0–1 coverage score over UMAP grid occupancy for go/no-go dataset decisions"
+    ],
+    "tags": ["Python", "FiftyOne", "Twelve Labs", "UMAP", "Computer Vision"],
+    "link": "https://github.com/rishimule/video-content-gap-analyzer",
+    "linkText": "View on GitHub",
+    "featured": true
+  },
+  {
+    "title": "AI Code Review Agent",
+    "description": "Autonomous LLM agent that reviews GitHub pull requests via a 5-node LangGraph pipeline. Posts severity-grouped Markdown reviews on every PR.",
+    "bullets": [
+      "5-node LangGraph pipeline using Llama 3.3 70B (Groq); Pydantic-validated outputs across 15 languages",
+      "Achieved 68.2% precision and 50.0% recall on a synthetic PR benchmark; documented 32% false-positive rate",
+      "Full Langfuse observability — per-node latency, token usage, and cost tracking"
+    ],
+    "tags": ["LangGraph", "LLM", "GitHub Actions", "Pydantic", "Langfuse"],
+    "link": "https://github.com/rishimule/ai-code-review-agent",
+    "linkText": "View on GitHub",
+    "featured": true
+  },
+  {
+    "title": "ArXiv Intelligence MCP",
+    "description": "Model Context Protocol server that turns the ArXiv corpus into a queryable research assistant. Published to the Pulse MCP registry.",
+    "bullets": [
+      "DocLing PDF ingestion with ChromaDB vector store for persistent semantic memory across sessions",
+      "RAG pipeline with chunking strategy tuned for dense scientific papers and math-heavy formulations",
+      "Published to the canonical Pulse MCP registry — usable by any MCP-compatible client"
+    ],
+    "tags": ["MCP", "RAG", "ChromaDB", "Python", "Vector Embeddings"],
+    "link": "https://github.com/rishimule/arxiv-intelligence-mcp",
+    "linkText": "View on GitHub",
+    "featured": true
+  },
+  {
+    "title": "AI-GovBot (HARVEY)",
+    "description": "RAG-based legal assistant for AI regulatory questions. Hybrid BM25 + semantic search across the AGORA dataset, deployed on GKE.",
+    "bullets": [
+      "Hybrid BM25 + vector retrieval cut hallucination rates by 20% on governance queries",
+      "Airflow + DVC + TFDV pipeline ensures 99% data freshness across legislative updates",
+      "Containerized on GKE with MLflow + Langfuse — sub-2s response times under concurrent load"
+    ],
+    "tags": ["LangChain", "FAISS", "Airflow", "GKE", "MLflow"],
+    "link": "https://github.com/ashrane111/AI-GovBot",
+    "linkText": "View on GitHub",
+    "featured": false
+  },
+  {
+    "title": "OpenFold Mini",
+    "description": "Mini-implementation of OpenFold protein structure prediction on consumer GPUs. Custom CUDA kernels and aggressive MSA compression.",
+    "bullets": [
+      "Custom CUDA attention kernel — 45% inference speedup vs CPU baseline",
+      "Compressed MSA database from 2TB to under 100GB; supports sequences up to 1K residues",
+      "Mixed-precision FP16/FP32 for sustained 80% GPU utilization on consumer hardware"
+    ],
+    "tags": ["CUDA", "PyTorch", "GPU Optimization", "Deep Learning"],
     "link": "https://expo.baulab.info/public/2025-Spring/rishimule/",
     "linkText": "View Project",
-    "featured": true
+    "featured": false
   },
   {
     "title": "Chess Agent",
-    "description": "An AI chess engine using minimax with alpha-beta pruning, handling all standard rules including castling, en passant, and promotion.",
-    "tags": ["Python", "AI", "Minimax", "Game Engine"],
+    "description": "Pure-Python chess engine with full rule support. Minimax with alpha-beta pruning, custom evaluation heuristic, profiled and optimized.",
+    "bullets": [
+      "Minimax with alpha-beta pruning + move ordering — 25% more positions evaluated per second",
+      "Heuristic factoring material, mobility, center control; opening book bypasses early-game search",
+      "100% PyTest coverage on move generation, special moves (castling, en passant), endgame detection"
+    ],
+    "tags": ["Python", "Minimax", "Alpha-Beta", "PyTest"],
     "link": "https://github.com/rishimule/chess_agent",
-    "linkText": "View on GitHub",
-    "featured": false
-  },
-  {
-    "title": "Sentiment Analysis",
-    "description": "An NLP pipeline for text sentiment classification on the IMDb dataset, comparing LSTM and Conv1D architectures built with TensorFlow.",
-    "tags": ["NLP", "TensorFlow", "LSTM", "Conv1D"],
-    "link": "https://github.com/rishimule/Sentiment-Analysis-of-Movie-Reviews",
-    "linkText": "View on GitHub",
-    "featured": false
-  },
-  {
-    "title": "Tourism Recommender & Chatbot",
-    "description": "A rule-based recommender system with a Google Dialogflow chatbot integration, weighted scoring engine, and responsive web interface. Published in IJRASET.",
-    "tags": ["Dialogflow", "Cloud", "Web App", "Published"],
-    "link": "https://github.com/rishimule/Personalized-Tourism-Recommender-Using-Chatbot",
-    "linkText": "View on GitHub",
-    "featured": true
-  },
-  {
-    "title": "Neural Network From Scratch",
-    "description": "A modular neural network implementation for MNIST digit recognition with custom forward and backpropagation, multiple optimizers, and loss functions\u2014no frameworks, just NumPy.",
-    "tags": ["Neural Networks", "MNIST", "Python"],
-    "link": "https://github.com/rishimule/mnist_nn",
     "linkText": "View on GitHub",
     "featured": false
   }
