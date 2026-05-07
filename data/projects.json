@@ -7,7 +7,13 @@
       "Auto-tuned KMeans with silhouette scoring; flags sparse and isolated clusters as underrepresented content",
       "Outputs a single 0–1 coverage score over UMAP grid occupancy for go/no-go dataset decisions"
     ],
-    "tags": ["Python", "FiftyOne", "Twelve Labs", "UMAP", "Computer Vision"],
+    "tags": [
+      "Python",
+      "FiftyOne",
+      "Twelve Labs",
+      "UMAP",
+      "Computer Vision"
+    ],
     "link": "https://github.com/rishimule/video-content-gap-analyzer",
     "linkText": "View on GitHub",
     "featured": true
@@ -20,7 +26,13 @@
       "Achieved 68.2% precision and 50.0% recall on a synthetic PR benchmark; documented 32% false-positive rate",
       "Full Langfuse observability — per-node latency, token usage, and cost tracking"
     ],
-    "tags": ["LangGraph", "LLM", "GitHub Actions", "Pydantic", "Langfuse"],
+    "tags": [
+      "LangGraph",
+      "LLM",
+      "GitHub Actions",
+      "Pydantic",
+      "Langfuse"
+    ],
     "link": "https://github.com/rishimule/ai-code-review-agent",
     "linkText": "View on GitHub",
     "featured": true
@@ -33,7 +45,13 @@
       "RAG pipeline with chunking strategy tuned for dense scientific papers and math-heavy formulations",
       "Published to the canonical Pulse MCP registry — usable by any MCP-compatible client"
     ],
-    "tags": ["MCP", "RAG", "ChromaDB", "Python", "Vector Embeddings"],
+    "tags": [
+      "MCP",
+      "RAG",
+      "ChromaDB",
+      "Python",
+      "Vector Embeddings"
+    ],
     "link": "https://github.com/rishimule/arxiv-intelligence-mcp",
     "linkText": "View on GitHub",
     "featured": true
@@ -46,10 +64,16 @@
       "Airflow + DVC + TFDV pipeline ensures 99% data freshness across legislative updates",
       "Containerized on GKE with MLflow + Langfuse — sub-2s response times under concurrent load"
     ],
-    "tags": ["LangChain", "FAISS", "Airflow", "GKE", "MLflow"],
+    "tags": [
+      "LangChain",
+      "FAISS",
+      "Airflow",
+      "GKE",
+      "MLflow"
+    ],
     "link": "https://github.com/ashrane111/AI-GovBot",
     "linkText": "View on GitHub",
-    "featured": false
+    "featured": true
   },
   {
     "title": "OpenFold Mini",
@@ -59,10 +83,15 @@
       "Compressed MSA database from 2TB to under 100GB; supports sequences up to 1K residues",
       "Mixed-precision FP16/FP32 for sustained 80% GPU utilization on consumer hardware"
     ],
-    "tags": ["CUDA", "PyTorch", "GPU Optimization", "Deep Learning"],
+    "tags": [
+      "CUDA",
+      "PyTorch",
+      "GPU Optimization",
+      "Deep Learning"
+    ],
     "link": "https://expo.baulab.info/public/2025-Spring/rishimule/",
     "linkText": "View Project",
-    "featured": false
+    "featured": true
   },
   {
     "title": "Chess Agent",
@@ -72,9 +101,14 @@
       "Heuristic factoring material, mobility, center control; opening book bypasses early-game search",
       "100% PyTest coverage on move generation, special moves (castling, en passant), endgame detection"
     ],
-    "tags": ["Python", "Minimax", "Alpha-Beta", "PyTest"],
+    "tags": [
+      "Python",
+      "Minimax",
+      "Alpha-Beta",
+      "PyTest"
+    ],
     "link": "https://github.com/rishimule/chess_agent",
     "linkText": "View on GitHub",
-    "featured": false
+    "featured": true
   }
 ]
