@@ -1175,3 +1175,126 @@ code {
     transition: none !important;
   }
 }
+
+/* ============================================================
+   Awards — Recognition cards (mirrors .entry-row)
+   ============================================================ */
+.award-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.award-card:last-child {
+  border-bottom: none;
+}
+
+.award-card:first-child {
+  padding-top: 0;
+}
+
+.award-meta .meta {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+}
+
+.award-meta h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.award-detail h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--text-heading);
+  margin: 0 0 8px;
+}
+
+.award-sponsors {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  margin-bottom: 12px;
+}
+
+.award-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.award-link {
+  color: var(--accent-gold);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  position: relative;
+}
+
+.award-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+.award-link:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .award-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ============================================================
+   Bullet Lists — Projects + Experience
+   ============================================================ */
+.project-bullets,
+.experience-bullets {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.project-bullets li,
+.experience-bullets li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.project-bullets li::before,
+.experience-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1px;
+  background: var(--accent-gold);
+}
+
+.project-bullets li:last-child,
+.experience-bullets li:last-child {
+  margin-bottom: 0;
+}
