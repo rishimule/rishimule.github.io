@@ -22,9 +22,13 @@
         '<a href="./' + personal.resumePath + '" target="_blank" class="link-gold">Download Resume &rarr;</a>' +
       '</div>';
 
+    var webpPath = personal.profileImage.replace(/\.png$/, '.webp');
     document.getElementById('hero-portrait').innerHTML =
       '<div class="portrait-frame">' +
-        '<img src="' + personal.profileImage + '" alt="' + personal.name + '" width="356" height="475">' +
+        '<picture>' +
+          '<source srcset="' + webpPath + '" type="image/webp">' +
+          '<img src="' + personal.profileImage + '" alt="' + personal.name + ' portrait" width="356" height="475" fetchpriority="high">' +
+        '</picture>' +
       '</div>';
   }
 
