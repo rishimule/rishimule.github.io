@@ -12,5 +12,9 @@
   "about": [
     "Software engineer working at the intersection of applied machine learning and production systems. Five years across the stack — from CUDA kernels for protein folding to LangGraph agents that auto-review pull requests.",
     "MS Computer Science from Northeastern University (3.96 GPA, Dec 2025). BE Computer Engineering from University of Mumbai (9.7/10). Won “Best Data Curation Plugin” at the Voxel51 + Twelve Labs hackathon (April 2026). Published research in IJRASET. Open to full-time SWE / ML roles."
-  ]
+  ],
+  "availability": {
+    "open": true,
+    "label": "Open to work"
+  }
 }
