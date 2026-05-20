@@ -1,5 +1,17 @@
 [
   {
+    "company": "CareEscapes AI",
+    "role": "AI Engineer Intern",
+    "location": "Cambridge, MA",
+    "startDate": "Feb 2026",
+    "endDate": "Present",
+    "bullets": [
+      "Engineered a retrieval-augmented quote-generation pipeline on Azure OpenAI + Azure AI Search indexing 800 procedure-pricing records across 6 partner clinics — cut manual quote drafting time by 60%",
+      "Architected a LangChain + Azure OpenAI patient intake chatbot with 4 conversational flows — structured capture of procedure type, medical history, and travel preferences for pre-consult triage",
+      "Prototyped vector-based clinic matching with pgvector + OpenAI text-embedding-3-small — 86% top-3 provider relevance across a 30-case evaluation set"
+    ]
+  },
+  {
     "company": "Thermobionics",
     "role": "Software Developer Intern",
     "location": "Boston, MA",
