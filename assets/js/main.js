@@ -24,7 +24,7 @@
 
     document.getElementById('hero-portrait').innerHTML =
       '<div class="portrait-frame">' +
-        '<img src="' + personal.profileImage + '" alt="' + personal.name + '" width="356" height="475">' +
+        '<img src="' + personal.profileImage + '" alt="' + personal.name + ' portrait" width="356" height="475" loading="eager">' +
       '</div>';
   }
 
