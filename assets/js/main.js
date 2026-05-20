@@ -14,7 +14,18 @@
 
   function renderHero(personal) {
     var parts = personal.name.split(' ');
+    var availability = personal.availability || {};
+    var statusHTML = '';
+    if (availability.open) {
+      var label = availability.label || 'Open to work';
+      statusHTML =
+        '<a href="#contact" class="status-pill hero-status" aria-label="' + label + ' — jump to contact">' +
+          '<span class="status-dot" aria-hidden="true"></span>' +
+          '<span class="status-label">' + label + '</span>' +
+        '</a>';
+    }
     document.getElementById('hero-text').innerHTML =
+      statusHTML +
       '<h1>' + parts.join('<br>') + '</h1>' +
       '<p class="hero-subtitle">' + personal.title + '</p>' +
       '<div class="hero-links">' +
