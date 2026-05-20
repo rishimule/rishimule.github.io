@@ -1379,10 +1379,20 @@ code {
 
 .nav-status:hover { opacity: 1; }
 
-.mobile-status {
-  padding: 6px 12px;
-  color: var(--text-primary);
-  border: 1px solid var(--border);
-  align-self: flex-start;
-  margin-bottom: 8px;
+.mobile-menu .mobile-status {
+  display: inline-flex;
+  width: auto;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 999px;
+  color: var(--nav-text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 1;
+}
+
+.mobile-menu .mobile-status:hover {
+  color: var(--accent-gold);
+  opacity: 1;
 }
