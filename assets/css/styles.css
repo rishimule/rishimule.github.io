@@ -9,6 +9,7 @@
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
   --font-body:    'Libre Baskerville', 'Georgia', serif;
   --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+  --color-status-green: #22c55e;
 }
 
 /* --- Theme: Light (Default) --- */
@@ -1295,4 +1296,105 @@ code {
 .project-bullets li:last-child,
 .experience-bullets li:last-child {
   margin-bottom: 0;
+}
+
+/* ============================================================
+   Open-to-Work Status Pill
+   ============================================================ */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.status-pill:hover .status-dot,
+.status-pill:focus-visible .status-dot {
+  transform: scale(1.15);
+}
+
+.status-pill:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+.status-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-status-green);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-status-green);
+  opacity: 0.6;
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  70%  { transform: scale(1.8); opacity: 0;   }
+  100% { transform: scale(1.8); opacity: 0;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot::after { animation: none; }
+}
+
+.hero-status {
+  margin-bottom: 18px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-heading);
+  font-size: 0.72rem;
+}
+
+.hero-status:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.nav-status {
+  padding: 4px 10px;
+  color: var(--nav-text);
+  opacity: 0.85;
+}
+
+.nav-status::after { display: none; }
+.nav-status:hover { opacity: 1; }
+
+.mobile-menu .mobile-status {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-height: 44px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 999px;
+  color: var(--nav-text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 1;
+}
+
+.mobile-menu .mobile-status:hover {
+  color: var(--accent-gold);
+  opacity: 1;
 }

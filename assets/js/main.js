@@ -14,7 +14,18 @@
 
   function renderHero(personal) {
     var parts = personal.name.split(' ');
+    var availability = personal.availability || {};
+    var statusHTML = '';
+    if (availability.open) {
+      var label = availability.label || 'Open to work';
+      statusHTML =
+        '<a href="#contact" class="status-pill hero-status" aria-label="' + label + ' — jump to contact">' +
+          '<span class="status-dot" aria-hidden="true"></span>' +
+          '<span class="status-label">' + label + '</span>' +
+        '</a>';
+    }
     document.getElementById('hero-text').innerHTML =
+      statusHTML +
       '<h1>' + parts.join('<br>') + '</h1>' +
       '<p class="hero-subtitle">' + personal.title + '</p>' +
       '<div class="hero-links">' +
@@ -30,6 +41,50 @@
           '<img src="' + personal.profileImage + '" alt="' + personal.name + ' portrait" width="356" height="475" fetchpriority="high">' +
         '</picture>' +
       '</div>';
+  }
+
+  function renderNav(personal) {
+    var availability = personal.availability || {};
+    var navLinks = document.getElementById('navLinks');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var existingNavPill = navLinks ? navLinks.querySelector('.nav-status') : null;
+    var existingMobilePill = mobileMenu ? mobileMenu.querySelector('.mobile-status') : null;
+
+    if (!availability.open) {
+      if (existingNavPill) existingNavPill.remove();
+      if (existingMobilePill) existingMobilePill.remove();
+      return;
+    }
+
+    var label = availability.label || 'Open to work';
+    var pillInner =
+      '<span class="status-dot" aria-hidden="true"></span>' +
+      '<span class="status-label">' + label + '</span>';
+
+    if (existingNavPill) {
+      existingNavPill.setAttribute('aria-label', label + ' — jump to contact');
+      existingNavPill.innerHTML = pillInner;
+    } else if (navLinks) {
+      var themeBtn = document.getElementById('themeToggle');
+      var navPill = document.createElement('a');
+      navPill.href = '#contact';
+      navPill.className = 'status-pill nav-status';
+      navPill.setAttribute('aria-label', label + ' — jump to contact');
+      navPill.innerHTML = pillInner;
+      navLinks.insertBefore(navPill, themeBtn);
+    }
+
+    if (existingMobilePill) {
+      existingMobilePill.setAttribute('aria-label', label + ' — jump to contact');
+      existingMobilePill.innerHTML = pillInner;
+    } else if (mobileMenu) {
+      var mobilePill = document.createElement('a');
+      mobilePill.href = '#contact';
+      mobilePill.className = 'status-pill mobile-status';
+      mobilePill.setAttribute('aria-label', label + ' — jump to contact');
+      mobilePill.innerHTML = pillInner;
+      mobileMenu.insertBefore(mobilePill, mobileMenu.firstChild);
+    }
   }
 
   function renderAbout(personal) {
@@ -300,7 +355,7 @@
   }
 
   function initNavigation() {
-    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.status-pill)');
     var sections = document.querySelectorAll('section[id], footer[id]');
 
     var sectionObserver = new IntersectionObserver(function (entries) {
@@ -455,6 +510,7 @@
       var awards         = responses[7];
 
       renderHero(personal);
+      renderNav(personal);
       renderAbout(personal);
       renderAwards(awards);
       renderExperience(experience);
