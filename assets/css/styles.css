@@ -1026,7 +1026,6 @@ code {
    ============================================================ */
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-status { display: none; }
   .nav-toggle { display: block; }
   .mobile-menu { display: block; }
 
@@ -1362,13 +1361,13 @@ code {
   padding: 6px 14px;
   border: 1px solid var(--border);
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-heading);
   font-size: 0.72rem;
 }
 
 .hero-status:hover {
-  color: var(--text-heading);
   border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .nav-status {
@@ -1377,12 +1376,15 @@ code {
   opacity: 0.85;
 }
 
+.nav-status::after { display: none; }
 .nav-status:hover { opacity: 1; }
 
 .mobile-menu .mobile-status {
   display: inline-flex;
+  align-items: center;
   width: auto;
-  padding: 6px 14px;
+  min-height: 44px;
+  padding: 10px 16px;
   margin-bottom: 16px;
   border: 1px solid var(--accent-gold);
   border-radius: 999px;

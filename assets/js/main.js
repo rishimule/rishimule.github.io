@@ -355,7 +355,7 @@
   }
 
   function initNavigation() {
-    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.status-pill)');
     var sections = document.querySelectorAll('section[id], footer[id]');
 
     var sectionObserver = new IntersectionObserver(function (entries) {
