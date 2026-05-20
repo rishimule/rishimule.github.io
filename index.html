@@ -42,6 +42,70 @@
   </script>
   <link rel="stylesheet" href="assets/css/styles.css">
   <noscript><style>.section-content,.hero-text,.hero-portrait,.footer-contact,.footer-social{opacity:1;transform:none;}</style></noscript>
+
+  <!-- JSON-LD — sync with data/personal.json, data/education.json, data/publications.json on edits -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://rishimule.dev/#person",
+        "name": "Rishi Mule",
+        "givenName": "Rishi",
+        "familyName": "Mule",
+        "jobTitle": "ML/AI Engineer & Full-Stack Developer",
+        "url": "https://rishimule.dev/",
+        "image": "https://rishimule.dev/assets/images/profile.png",
+        "sameAs": [
+          "https://github.com/rishimule",
+          "https://www.linkedin.com/in/rishi-mule/"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Northeastern University",
+            "sameAs": "https://www.northeastern.edu/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Mumbai",
+            "sameAs": "https://mu.ac.in/"
+          }
+        ],
+        "knowsAbout": [
+          "Machine Learning",
+          "Full-Stack Development",
+          "CUDA",
+          "LangGraph",
+          "Cloud Computing",
+          "MLOps",
+          "Deep Learning"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rishimule.dev/#website",
+        "url": "https://rishimule.dev/",
+        "name": "Rishi Mule",
+        "author": { "@id": "https://rishimule.dev/#person" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "name": "TRS — A Rule Based Personalized Tourism Recommender System",
+        "author": { "@id": "https://rishimule.dev/#person" },
+        "datePublished": "2022-10-31",
+        "publisher": {
+          "@type": "Organization",
+          "name": "International Journal for Research in Applied Science & Engineering Technology (IJRASET)"
+        },
+        "url": "https://doi.org/10.22214/ijraset.2022.47172",
+        "sameAs": "https://doi.org/10.22214/ijraset.2022.47172"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
