@@ -281,28 +281,28 @@ code {
   gap: 12px;
 }
 
-.nav-social {
+a.nav-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px;
   height: 36px;
   padding: 0;
-  color: var(--nav-text);
+  color: var(--accent-gold);
   opacity: 0.75;
   transition: color 0.3s ease, opacity 0.3s ease;
   border-radius: 4px;
 }
 
-.nav-social::after { display: none; }
+a.nav-social::after { display: none; }
 
-.nav-social:hover,
-.nav-social:focus-visible {
+a.nav-social:hover,
+a.nav-social:focus-visible {
   color: var(--accent-gold);
   opacity: 1;
 }
 
-.nav-social:focus-visible {
+a.nav-social:focus-visible {
   outline: 2px solid var(--accent-gold);
   outline-offset: 3px;
 }
@@ -402,22 +402,26 @@ code {
 [data-theme="dark"] .theme-toggle-btn .icon-moon { opacity: 1; }
 
 .mobile-theme-toggle-btn {
-  padding: 12px 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 4px;
+  padding: 6px;
   width: 32px;
   height: auto;
 }
 
-/* Mobile social icons row */
+/* Mobile utility row — socials cluster + theme toggle */
+.mobile-menu .mobile-utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 12px;
+}
+
 .mobile-menu .mobile-socials {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
-  padding: 4px 0 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 12px;
+  gap: 16px;
 }
 
 .mobile-menu .mobile-nav-social {
@@ -428,7 +432,8 @@ code {
   height: 44px;
   padding: 0;
   border-bottom: none;
-  opacity: 0.75;
+  color: var(--accent-gold);
+  opacity: 1;
   font-size: 0;
 }
 
