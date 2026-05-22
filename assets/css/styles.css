@@ -263,6 +263,56 @@ code {
 
 .nav-resume::after { display: none; }
 
+/* ============================================================
+   Nav Social Icons (GitHub, LinkedIn)
+   ============================================================ */
+.nav-divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: var(--nav-text);
+  opacity: 0.25;
+  align-self: center;
+}
+
+.nav-socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--nav-text);
+  opacity: 0.75;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-social::after { display: none; }
+
+.nav-social:hover,
+.nav-social:focus-visible {
+  color: var(--accent-gold);
+  opacity: 1;
+}
+
+.nav-social:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+.nav-social-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 /* Mobile menu toggle */
 .nav-toggle {
   display: none;
@@ -357,6 +407,40 @@ code {
   margin-bottom: 4px;
   width: 32px;
   height: auto;
+}
+
+/* Mobile social icons row */
+.mobile-menu .mobile-socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 4px 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 12px;
+}
+
+.mobile-menu .mobile-nav-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-bottom: none;
+  opacity: 0.75;
+  font-size: 0;
+}
+
+.mobile-menu .mobile-nav-social:hover,
+.mobile-menu .mobile-nav-social:focus-visible {
+  color: var(--accent-gold);
+  opacity: 1;
+}
+
+.mobile-nav-social-icon {
+  width: 22px;
+  height: 22px;
 }
 
 /* ============================================================
@@ -1368,33 +1452,4 @@ code {
 .hero-status:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
-}
-
-.nav-status {
-  padding: 4px 10px;
-  color: var(--nav-text);
-  opacity: 0.85;
-}
-
-.nav-status::after { display: none; }
-.nav-status:hover { opacity: 1; }
-
-.mobile-menu .mobile-status {
-  display: inline-flex;
-  align-items: center;
-  width: auto;
-  min-height: 44px;
-  padding: 10px 16px;
-  margin-bottom: 16px;
-  border: 1px solid var(--accent-gold);
-  border-radius: 999px;
-  color: var(--nav-text);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  opacity: 1;
-}
-
-.mobile-menu .mobile-status:hover {
-  color: var(--accent-gold);
-  opacity: 1;
 }
