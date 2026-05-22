@@ -258,11 +258,9 @@
 
   function renderFooter(personal) {
     var emailIcon = '<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 5l9 7 9-7"/></svg>';
-    var phoneIcon = '<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
 
     document.getElementById('footer-contact').innerHTML =
-      '<a href="mailto:' + personal.email + '">' + emailIcon + '<span>' + personal.email + '</span></a>' +
-      '<a href="tel:+1' + personal.phone.replace(/-/g, '') + '">' + phoneIcon + '<span>' + personal.phone + '</span></a>';
+      '<a href="mailto:' + personal.email + '">' + emailIcon + '<span>' + personal.email + '</span></a>';
 
     var githubIcon = '<svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="9"/><path d="M8 5L4.5 1 9 4.5"/><path d="M16 5L19.5 1 15 4.5"/></svg>';
     var linkedinIcon = '<svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor" stroke="none"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><line x1="12" y1="10" x2="12" y2="17"/><path d="M12 13c0-2 1.5-3 2.5-3 1.5 0 2.5 1 2.5 3v4"/></svg>';
