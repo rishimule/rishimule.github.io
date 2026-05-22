@@ -861,7 +861,8 @@ a.nav-social:focus-visible {
   gap: 8px;
 }
 
-.footer-contact a {
+.footer-contact a,
+.footer-contact .footer-location {
   display: inline-flex;
   align-items: center;
   gap: 8px;
